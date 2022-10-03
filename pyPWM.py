@@ -12,25 +12,29 @@ amplitud = 2
 porcentaje = y1/amplitud
 # print(porcentaje)
 
-t=np.linspace(0,10,1100)
+t=np.linspace(0,10,1000)
 # print(t)
 porcen = porcentaje*100
 p = [int(x) for x in porcen]
 output = []
-for i in p[0]:
-    index = 0
+
+for i in p[:-1]:
     for j in range(100):
-        if j<=i:
-            output.append(0)
-        else:
+        
+        if (100-j)<=i:
             output.append(amplitud)
-        index += 1
+        else:
+            output.append(0)
+        print(j, i, output[-1])
 
 print(output)
 plt.plot(t, output)
 plt.plot(x, y)
 plt.plot(x1, porcentaje*2)
 plt.show()
+
+
+
 #print(int(porcen))
 
 # print(x[::10])
